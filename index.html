@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.88.1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<title>EF-TTS</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
+
+<div class=" container" >
+<header>
+</header>
+<main>
+<article itemscope itemtype="https://schema.org/BlogPosting">
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+	<div class="text-center">
+		<h1>EF-TTS:</h1>
+        <h3>High-fidelity Text-to-Speech through Conditional Flow Matching and Prosody Modeling with Large Speech Language Models</h3>
+		<p>Haoyu Wang, Jiale Chen, Jiaxun Li, Yuehai Wang</p>  
+		<p>Department of Information and Electronic Engineering, Zhejiang University, China<br></p> 
+		<p>Submitted to APCLR 2025<br>  </p>  
+	</div>
+	<p>
+        <b>Abstract.</b> 
+		Text-to-speech (TTS) technology has made significant advancements. 
+        However, generating high-quality, controllable emotional speech remains challenging due to the complex nature of emotions and speaker variability. 
+        In this paper, we propose EFTTS, a controllable, zero-shot emotional TTS model. 
+        EFTTS extracts emotional features using a self-supervised emotion representation model and utilizes conditional flow matching to model emotion features with text inputs.
+        This approach allows for precise emotional control and decouples emotion from other paralinguistic features.
+        Additionally, we introduce zero-shot emotion transfer to generate emotionally appropriate speech that is closely aligned with the input text and reference speech.
+        Experimental results show that EFTTS outperforms existing methods in terms of emotional expressiveness, naturalness, and synthesis quality, 
+        offering a promising solution for high-quality, controllable emotional speech synthesis.<br>
+		
+      </p>
+</div>
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">		
+	<h2 id="model-overview" style="text-align: center;">Overview</h2>
+		<p style="text-align: center;">
+			<img src="pics/figure1.png" width="1000" alt="">
+			
+		</p>
+		<p style="text-align: center;">
+			<b>Figure 1: </b> Training diagram of our model. The pitch extractor, PL-bert, and ASR modules are frozen during training. The emotion encoder extracts the utterance-level features of speech.
+		</p>
+		<p style="text-align: center;">
+			<img src="pics/figure2.png" width="1200" alt="">
+			
+		</p>
+		<p style="text-align: center;">
+			<b>Figure 2: </b> Inference diagram of the EFTTS.
+		</p>
+</div>
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <h2 style="text-align: center;">Comparison with other TTS models</h2>
+    <div class="table-responsive pt-3" tabindex="0">
+        <table class="table table-hover pt-2">
+            <thead>
+                <tr>
+                    <th style="text-align: center; width: 25%">Emotion</th>
+                    <th style="text-align: center; width: 25%">EmoDiff</th>
+                    <th style="text-align: center; width: 25%">EmoSphere</th>
+                    <th style="text-align: center; width: 25%">Ours</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Angry情感 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">Angry</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/0015-Angry_000362.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere/0015_Angry000392.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/Ours/0011_angry000222.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                
+                <!-- 分隔线 -->
+                <tr class="table-secondary">
+                    <td colspan="4" style="height: 2px; padding: 0; border-bottom: 1px solid #adb5bd;"></td>
+                </tr>
+                
+                <!-- Happy情感 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">Happy</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/0015-Happy_000794.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere/0013_Happy000725.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/Ours/0012_happy001223.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                
+                <!-- 分隔线 -->
+                <tr class="table-secondary">
+                    <td colspan="4" style="height: 2px; padding: 0; border-bottom: 1px solid #adb5bd;"></td>
+                </tr>
+                
+                <!-- Sad情感 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">Sad</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/0015-Sad_001072.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere/0020_Sad001093.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/Ours/0020_sad001531.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                
+                <!-- 分隔线 -->
+                <tr class="table-secondary">
+                    <td colspan="4" style="height: 2px; padding: 0; border-bottom: 1px solid #adb5bd;"></td>
+                </tr>
+                
+                <!-- Surprise情感 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">Surprise</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/0015-Surprise_001485.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere/0011_Surprise001445.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/Ours/0011_surprise000093.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+	<h2 style="text-align: center;">Controllable Emotional Speech Synthesis</h2>
+		<div class="table-responsive pt-3" tabindex="0">
+			<table class="table table-hover pt-2">
+				<thead>
+					<tr>
+					<th style="text-align: center; width: 35%">Text</th>
+					<th style="text-align: center; width: 20%">Ground Truth</th>
+					<th style="text-align: center; width: 20%">Synthesized</th>
+                    <th style="text-align: center; width: 25%">Emotion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;">Poor Tom now is dead!</td>	
+						<td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios\without\0014_000015_gt.wav" >Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios\without\0014_000015.wav" >Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;"> Neutral </td>	
+					</tr>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;">Then sadly it is much farther.</td>	
+						<td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios\without\0014_000368_gt.wav" >Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios\without\0014_000368.wav" >Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;"> Angry </td>	
+					</tr>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;">Then there was a report.</td>	
+						<td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios\without\0014_000780_gt.wav" >Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios\without\0014_000780.wav" >Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;"> Happy </td>	
+					</tr>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;">Andy what's the gyre and to gimble.</td>	
+						<td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios\without\0014_001056_gt.wav" >Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios\without\0014_001056.wav" >Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;"> Sad </td>	
+					</tr>
+					<tr>
+						<td style="text-align: center;vertical-align:middle;">But what about this thing, sticky!</td>	
+						<td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios\without\0014_001614_gt.wav" >Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios\without\0014_001614.wav" >Your browser does not support the audio element.</audio></td>
+						<td style="text-align: center;vertical-align:middle;"> Surprise </td>	
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</div>
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+	<h2 style="text-align: center;">Zero-shot Emotion Transfer</h2>
+    <div class="table-responsive pt-3" tabindex="0">
+        <table class="table table-hover pt-2">
+            <thead>
+                <tr>
+                    <th style="text-align: center">Text</th>
+                    <th style="text-align: center">Ground Truth</th>
+                    <th style="text-align: center">Synthesized</th>
+                    <th style="text-align: center">Emotion</th>
+                    <th style="text-align: center">Emotional Referance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Angry情感 - 3个样本 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">I can't believe you did that!</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0011_000222_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0011_000222.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center;vertical-align:middle;" rowspan="3">Angry</td>
+                    <td style="text-align: center;vertical-align:middle;" rowspan="3"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/angry.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">That's completely unacceptable!</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0011_001558_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0011_001558.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">Get out of my way right now!</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0016_001283_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0016_001283.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                
+                <!-- 分隔线 -->
+                <tr class="table-secondary">
+                    <td colspan="5" style="height: 2px; padding: 0;"></td>
+                </tr>
+                
+                <!-- Happy情感 - 3个样本 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">I'm so excited about the party!</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0012_001223_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0012_001223.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center;vertical-align:middle;" rowspan="3">Happy</td>
+                    <td style="text-align: center;vertical-align:middle;" rowspan="3"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/happy.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">We won the championship!</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0012_001605_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0012_001605.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">That's wonderful news!</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0015_000005_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0015_000005.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                
+                <!-- 分隔线 -->
+                <tr class="table-secondary">
+                    <td colspan="5" style="height: 2px; padding: 0;"></td>
+                </tr>
+                
+                <!-- Neutral情感 - 3个样本 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">The meeting will start at two o'clock.</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0011_000381_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0011_000381.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center;vertical-align:middle;" rowspan="3">Neutral</td>
+                    <td style="text-align: center;vertical-align:middle;" rowspan="3"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/neutral.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">The train arrives at platform three.</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0012_000505_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0012_000505.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">Please fill out the form completely.</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0016_000697_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0016_000697.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                
+                <!-- 分隔线 -->
+                <tr class="table-secondary">
+                    <td colspan="5" style="height: 2px; padding: 0;"></td>
+                </tr>
+                
+                <!-- Sad情感 - 3个样本 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">I miss her so much since she's gone.</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0013_000171_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0013_000171.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center;vertical-align:middle;" rowspan="3">Sad</td>
+                    <td style="text-align: center;vertical-align:middle;" rowspan="3"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/sad.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">We lost everything in the fire.</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0017_000796_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0017_000796.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">I'm sorry, but he didn't make it.</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0020_001531_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0020_001531.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                
+                <!-- 分隔线 -->
+                <tr class="table-secondary">
+                    <td colspan="5" style="height: 2px; padding: 0;"></td>
+                </tr>
+                
+                <!-- Surprise情感 - 3个样本 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">What? I can't believe it!</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0011_000093_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0011_000093.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center;vertical-align:middle;" rowspan="3">Surprise</td>
+                    <td style="text-align: center;vertical-align:middle;" rowspan="3"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/surprise.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">Oh my goodness! Is that really you?</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0013_000229_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0013_000229.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">Wow! That was unexpected!</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0014_000537_gt.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0014_000537.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</html>

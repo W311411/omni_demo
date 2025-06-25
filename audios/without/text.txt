@@ -1,0 +1,5 @@
+0014_000015	Poor Tom now is dead!	Neutral
+0014_000368	Then sadly it is much farther.	Angry
+0014_000780	Then there was a report.	Happy
+0014_001056	Andy what's the gyre and to gimble.	Sad
+0014_001614	But what about this thing, sticky!	Surprise
