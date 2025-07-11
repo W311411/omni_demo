@@ -23,11 +23,11 @@
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
 	<div class="text-center">
-		<h1>EF-TTS:</h1>
+		<h1>EF-TTS:</h1>s
         <h3>High-fidelity Text-to-Speech through Conditional Flow Matching and Prosody Modeling with Large Speech Language Models</h3>
-		<p>Haoyu Wang, Jiale Chen, Jiaxun Li, Yuehai Wang</p>  
+		<p>Haoyu Wang, Jiale Chen, Jiaxun Li, Sizhe Shan, Yuehai Wang</p>  
 		<p>Department of Information and Electronic Engineering, Zhejiang University, China<br></p> 
-		<p>Submitted to APCLR 2025<br>  </p>  
+		<p>Submitted to APSIPA 2025<br>  </p>  
 	</div>
 	<p>
         <b>Abstract.</b> 
@@ -62,24 +62,24 @@
 </div>
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-    <h2 style="text-align: center;">Comparison with other TTS models</h2>
+    <h2 style="text-align: center;">Comparison with EmoDiff</h2>
     <div class="table-responsive pt-3" tabindex="0">
         <table class="table table-hover pt-2">
             <thead>
                 <tr>
+                    <th style="text-align: center; width: 25%">Text</th>
                     <th style="text-align: center; width: 25%">Emotion</th>
                     <th style="text-align: center; width: 25%">EmoDiff</th>
-                    <th style="text-align: center; width: 25%">EmoSphere</th>
                     <th style="text-align: center; width: 25%">Ours</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Angry情感 -->
                 <tr>
+                    <td style="text-align: center;vertical-align:middle;">Her shoes were like fishes.</td>
                     <td style="text-align: center;vertical-align:middle;">Angry</td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/0015-Angry_000362.wav">Your browser does not support the audio element.</audio></td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere/0015_Angry000392.wav">Your browser does not support the audio element.</audio></td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/Ours/0011_angry000222.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/angry_EmoDiff.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/angry_Ours.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 
                 <!-- 分隔线 -->
@@ -89,10 +89,10 @@
                 
                 <!-- Happy情感 -->
                 <tr>
+                    <td style="text-align: center;vertical-align:middle;">They found a cow grazing in a field.</td>
                     <td style="text-align: center;vertical-align:middle;">Happy</td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/0015-Happy_000794.wav">Your browser does not support the audio element.</audio></td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere/0013_Happy000725.wav">Your browser does not support the audio element.</audio></td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/Ours/0012_happy001223.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/happy_EmoDiff.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/happy_Ours.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 
                 <!-- 分隔线 -->
@@ -102,10 +102,10 @@
                 
                 <!-- Sad情感 -->
                 <tr>
+                    <td style="text-align: center;vertical-align:middle;">And what are doves? And what are doves?</td>
                     <td style="text-align: center;vertical-align:middle;">Sad</td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/0015-Sad_001072.wav">Your browser does not support the audio element.</audio></td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere/0020_Sad001093.wav">Your browser does not support the audio element.</audio></td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/Ours/0020_sad001531.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/sad_EmoDiff.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/sad_Ours.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 
                 <!-- 分隔线 -->
@@ -115,10 +115,74 @@
                 
                 <!-- Surprise情感 -->
                 <tr>
+                    <td style="text-align: center;vertical-align:middle;">Suppose I take grandmother a fresh vegetable?</td>
                     <td style="text-align: center;vertical-align:middle;">Surprise</td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/0015-Surprise_001485.wav">Your browser does not support the audio element.</audio></td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere/0011_Surprise001445.wav">Your browser does not support the audio element.</audio></td>
-                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/Ours/0011_surprise000093.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/surprise_EmoDiff.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoDiff/surprise_Ours.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <h2 style="text-align: center;">Comparison with EmoSphere-TTS</h2>
+    <div class="table-responsive pt-3" tabindex="0">
+        <table class="table table-hover pt-2">
+            <thead>
+                <tr>
+                    <th style="text-align: center; width: 25%">Text</th>
+                    <th style="text-align: center; width: 25%">Emotion</th>
+                    <th style="text-align: center; width: 25%">EmoSphere</th>
+                    <th style="text-align: center; width: 25%">Ours</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Angry情感 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">She may mind ye of her.</td>
+                    <td style="text-align: center;vertical-align:middle;">Angry</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere-TTS/angry_EmoSphere.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere-TTS/angry_Ours.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                
+                <!-- 分隔线 -->
+                <tr class="table-secondary">
+                    <td colspan="4" style="height: 2px; padding: 0; border-bottom: 1px solid #adb5bd;"></td>
+                </tr>
+                
+                <!-- Happy情感 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">She is now choosing skirt to wear.</td>
+                    <td style="text-align: center;vertical-align:middle;">Happy</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere-TTS/happy_EmoSphere.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere-TTS/happy_Ours.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                
+                <!-- 分隔线 -->
+                <tr class="table-secondary">
+                    <td colspan="4" style="height: 2px; padding: 0; border-bottom: 1px solid #adb5bd;"></td>
+                </tr>
+                
+                <!-- Sad情感 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">Story twenty nine a boy and a monkey.</td>
+                    <td style="text-align: center;vertical-align:middle;">Sad</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere-TTS/sad_EmoSphere.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere-TTS/sad_Ours.wav">Your browser does not support the audio element.</audio></td>
+                </tr>
+                
+                <!-- 分隔线 -->
+                <tr class="table-secondary">
+                    <td colspan="4" style="height: 2px; padding: 0; border-bottom: 1px solid #adb5bd;"></td>
+                </tr>
+                
+                <!-- Surprise情感 -->
+                <tr>
+                    <td style="text-align: center;vertical-align:middle;">The nastiest things they saw were the cobwebs.</td>
+                    <td style="text-align: center;vertical-align:middle;">Surprise</td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere-TTS/surprise_EmoSphere.wav">Your browser does not support the audio element.</audio></td>
+                    <td style="text-align: center"><audio controls="controls" style="width: 100%"><source src="audios/compare/EmoSphere-TTS/surprise_Ours.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
             </tbody>
         </table>
@@ -183,25 +247,25 @@
                     <th style="text-align: center">Ground Truth</th>
                     <th style="text-align: center">Synthesized</th>
                     <th style="text-align: center">Emotion</th>
-                    <th style="text-align: center">Emotional Referance</th>
+                    <th style="text-align: center">Referance Audio</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Angry情感 - 3个样本 -->
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">I can't believe you did that!</td>
+                    <td style="text-align: center;vertical-align:middle;">Ask god to help you.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0011_000222_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0011_000222.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center;vertical-align:middle;" rowspan="3">Angry</td>
                     <td style="text-align: center;vertical-align:middle;" rowspan="3"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/angry.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">That's completely unacceptable!</td>
+                    <td style="text-align: center;vertical-align:middle;">it looks much better.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0011_001558_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0011_001558.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">Get out of my way right now!</td>
+                    <td style="text-align: center;vertical-align:middle;">Why should i care though David's lips were twitching?</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0016_001283_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/angry/0016_001283.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
@@ -213,19 +277,19 @@
                 
                 <!-- Happy情感 - 3个样本 -->
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">I'm so excited about the party!</td>
+                    <td style="text-align: center;vertical-align:middle;">He searched through the box.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0012_001223_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0012_001223.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center;vertical-align:middle;" rowspan="3">Happy</td>
                     <td style="text-align: center;vertical-align:middle;" rowspan="3"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/happy.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">We won the championship!</td>
+                    <td style="text-align: center;vertical-align:middle;">Fear neither root nor sprout!</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0012_001605_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0012_001605.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">That's wonderful news!</td>
+                    <td style="text-align: center;vertical-align:middle;">Clear than clear water!</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0015_000005_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/happy/0015_000005.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
@@ -237,19 +301,19 @@
                 
                 <!-- Neutral情感 - 3个样本 -->
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">The meeting will start at two o'clock.</td>
+                    <td style="text-align: center;vertical-align:middle;">All smile were real and the happier the more sincere .</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0011_000381_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0011_000381.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center;vertical-align:middle;" rowspan="3">Neutral</td>
                     <td style="text-align: center;vertical-align:middle;" rowspan="3"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/neutral.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">The train arrives at platform three.</td>
+                    <td style="text-align: center;vertical-align:middle;">This speech roused dame ilse to anger.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0012_000505_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0012_000505.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">Please fill out the form completely.</td>
+                    <td style="text-align: center;vertical-align:middle;">What are you waiting for? man.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0016_000697_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/neutral/0016_000697.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
@@ -261,19 +325,19 @@
                 
                 <!-- Sad情感 - 3个样本 -->
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">I miss her so much since she's gone.</td>
+                    <td style="text-align: center;vertical-align:middle;">I say neither yea nor nay.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0013_000171_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0013_000171.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center;vertical-align:middle;" rowspan="3">Sad</td>
                     <td style="text-align: center;vertical-align:middle;" rowspan="3"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/sad.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">We lost everything in the fire.</td>
+                    <td style="text-align: center;vertical-align:middle;">I don't painted tiger.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0017_000796_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0017_000796.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">I'm sorry, but he didn't make it.</td>
+                    <td style="text-align: center;vertical-align:middle;">It must come sometimes to jam a day.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0020_001531_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/sad/0020_001531.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
@@ -285,19 +349,19 @@
                 
                 <!-- Surprise情感 - 3个样本 -->
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">What? I can't believe it!</td>
+                    <td style="text-align: center;vertical-align:middle;">To buy two pork chops.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0011_000093_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0011_000093.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center;vertical-align:middle;" rowspan="3">Surprise</td>
                     <td style="text-align: center;vertical-align:middle;" rowspan="3"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/surprise.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">Oh my goodness! Is that really you?</td>
+                    <td style="text-align: center;vertical-align:middle;">The first year they sowed rye.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0013_000229_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0013_000229.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
                 <tr>
-                    <td style="text-align: center;vertical-align:middle;">Wow! That was unexpected!</td>
+                    <td style="text-align: center;vertical-align:middle;">An hour out of Guildford town.</td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0014_000537_gt.wav">Your browser does not support the audio element.</audio></td>
                     <td style="text-align: center"><audio controls="controls" style="width: 160px;"><source src="audios/with/surprise/0014_000537.wav">Your browser does not support the audio element.</audio></td>
                 </tr>
