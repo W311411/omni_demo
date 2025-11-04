@@ -22,31 +22,48 @@
 <article itemscope itemtype="https://schema.org/BlogPosting">
 
 <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
-	<div class="text-center">
-		<h1>EMPATHY OMNI</h1>
-        <h3>ENABLING EMPATHETIC SPEECH RESPONSE GENERATION THROUGH LARGE LANGUAGE MODELS</h3>
-		<p>Haoyu Wang, Guangyan Zhang, Jiale Chen, Jingyu Li, Yuehai Wang, Yiwe Guo</p>  
-		<p>ICASSP 2026<br>  </p>  
-	</div>
-	<p>
-        <b>Abstract.</b> 
-		With the development of speech large language models (speech LLMs), users can now interact directly with assistants via speech. However, most existing models only convert response content into speech without fully capturing the rich emotional cues in user queries, where the same sentence may convey different meanings depending on the expression. Emotional understanding is thus essential for improving human–machine interaction.   
-        Most empathetic speech LLMs rely on massive datasets, demanding high computational cost. A key challenge is to build models that generate empathetic responses with limited data and without large-scale training.  
-        To this end, we propose Emotion Omni, a model that understands emotional content in user speech and generates empathetic responses. We further developed a data pipeline to construct a 200k emotional dialogue dataset supporting empathetic speech assistants.  
-        Experiments show that Emotion Omni achieves comparable instruction-following ability without large-scale pretraining, while surpassing existing models in speech quality (UTMOS:4.41) and empathy (Emotion GPT Score: 3.97). These results confirm its improvements in both speech fidelity and emotional expressiveness. <br>
-		
-      </p>
+  <div class="text-center">
+    <h1>EMPATHY OMNI</h1>
+    <h3>ENABLING EMPATHETIC SPEECH RESPONSE GENERATION THROUGH LARGE LANGUAGE MODELS</h3>
+    <p>Haoyu Wang, Guangyan Zhang, Jiale Chen, Jingyu Li, Yuehai Wang, Yiwe Guo</p>
+    <p>ICASSP 2026<br></p>
+
+    <!-- 🔗 Badges: Code & Paper -->
+    <div class="my-3">
+      <a href="https://github.com/W311411/Empathy-Omni" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/badge/GitHub-Code-black?logo=github" alt="GitHub Code">
+      </a>
+      <a href="https://arxiv.org/abs/2508.18655" target="_blank" rel="noopener" class="ms-2">
+        <img src="https://img.shields.io/badge/arXiv-Paper-b31b1b?logo=arXiv" alt="arXiv Paper">
+      </a>
+      <!-- 可选：再加一个 Demo 或 HF 模型链接
+      <a href="https://your-demo.example.com" target="_blank" rel="noopener" class="ms-2">
+        <img src="https://img.shields.io/badge/Demo-Page-brightgreen?logo=googlechrome" alt="Demo Page">
+      </a>
+      <a href="https://huggingface.co/<your-org>/<your-model>" target="_blank" rel="noopener" class="ms-2">
+        <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging_Face-Model-blue" alt="Hugging Face Model">
+      </a>
+      -->
+    </div>
+  </div>
+
+  <p>
+    <b>Abstract.</b>
+    With the development of speech large language models (speech LLMs), users can now interact directly with assistants via speech. However, most existing models only convert response content into speech without fully capturing the rich emotional cues in user queries, where the same sentence may convey different meanings depending on the expression. Emotional understanding is thus essential for improving human–machine interaction.
+    Most empathetic speech LLMs rely on massive datasets, demanding high computational cost. A key challenge is to build models that generate empathetic responses with limited data and without large-scale training.
+    To this end, we propose Emotion Omni, a model that understands emotional content in user speech and generates empathetic responses. We further developed a data pipeline to construct a 200k emotional dialogue dataset supporting empathetic speech assistants.
+    Experiments show that Emotion Omni achieves comparable instruction-following ability without large-scale pretraining, while surpassing existing models in speech quality (UTMOS:4.41) and empathy (Emotion GPT Score: 3.97). These results confirm its improvements in both speech fidelity and emotional expressiveness. <br>
+  </p>
 </div>
 
-<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">		
-	<h2 id="model-overview" style="text-align: center;">Overview</h2>
-		<p style="text-align: center;">
-			<img src="pics/omni9.17.png" width="1000" alt="">
-			
-		</p>
-		<p style="text-align: center;">
-			<b>Figure 1: </b> Model Architecture and Training Process.
-		</p>
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+  <h2 id="model-overview" style="text-align: center;">Overview</h2>
+  <p style="text-align: center;">
+    <img src="pics/omni9.17.png" width="1000" alt="">
+  </p>
+  <p style="text-align: center;">
+    <b>Figure 1: </b> Model Architecture and Training Process.
+  </p>
 </div>
 
 
@@ -117,3 +134,4 @@
 
 
 </html>
+
